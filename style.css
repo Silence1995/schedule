@@ -1,0 +1,136 @@
+/* 使用 CSS 變數定義色彩 */
+:root {
+    --primary-color: #607d8b;    /* 藍灰色 */
+    --secondary-color: #f5f5f5;   /* 超淺灰 */
+    --text-color: #37474f;        /* 深藍灰 */
+    --card-bg: #ffffff;           /* 白色 */
+    --border-color: #b0bec5;      /* 淡藍灰 */
+    --hover-bg: #eceff1;          /* 淡懸停背景 */
+    --even-row-bg: #f1f3f5;       /* 超淺灰 */
+  }
+  
+  /* 全局設定 */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* 頁面背景與字型 */
+  body { 
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    padding: 20px;
+  }
+  
+  h2 { 
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: normal;
+  }
+  
+  /* 主容器：左右分欄 */
+  .container { 
+    display: flex; 
+    gap: 20px;
+  }
+  
+  /* 左側：表格區 */
+  .left { 
+    flex: 2; 
+    overflow: auto; 
+    border: 1px solid var(--border-color); 
+    background: var(--card-bg); 
+    border-radius: 4px;
+  }
+  
+  /* 右側：控制區 */
+  .right { 
+    flex: 1; 
+    margin-left: 20px; 
+    overflow: auto; 
+    background: var(--card-bg); 
+    padding: 10px; 
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    position: relative;
+  }
+  
+  /* 表格樣式 */
+  table { 
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  
+  th, td { 
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    text-align: center;
+    min-width: 120px;
+  }
+  
+  th { 
+    background: var(--primary-color);
+    color: #fff;
+    font-weight: normal;
+  }
+  
+  tr:nth-child(even) td { 
+    background: var(--even-row-bg);
+  }
+  
+  tr:hover td { 
+    background: var(--hover-bg);
+  }
+  
+  /* 控制區塊：使用 details/summary 實現可收合 */
+  details {
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 10px;
+    background: var(--card-bg);
+  }
+  summary {
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+  }
+  
+  /* 輸入框、下拉選單、按鈕 */
+  input, select, button { 
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+  }
+  
+  button { 
+    background: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s;
+  }
+  
+  button:hover { 
+    background: #5a6268;
+  }
+  
+  /* 響應式設計：當螢幕寬度較小時，採用直式排列 */
+  @media screen and (max-width: 600px) {
+    .container {
+      flex-direction: column;
+    }
+    .right {
+      margin-left: 0;
+      margin-top: 20px;
+    }
+  }
+  

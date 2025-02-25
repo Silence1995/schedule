@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>行事历表格</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- 引入 html2canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNa7r5qweM9VLKpKrkHS6lABpK14N2d7vQZrUPfnF8M2Fmmhu+PgWOikB7ctNuJb7Y8He6LzNkg9Jp2KQm8G2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+  <h2 id="calendarTitle" contenteditable="true"></h2>
+  <div class="container">
+    <div class="left">
+      <table id="calendarTable"></table>
+    </div>
+    <div class="right" id="rightPanel">
+      <details class="control-section" open id="addSection">
+        <summary>添加內容</summary>
+        <label>內容: <input type="text" id="contentInput"></label><br>
+        <label>时段: 
+          <select id="timeSlotSelect" multiple size="5"></select>
+        </label><br>
+        <label>星期: 
+          <select id="daySelect" multiple size="5"></select>
+        </label><br>
+        <label>類型:
+          <input type="radio" name="entryType" value="個人" checked> 個人
+          <input type="radio" name="entryType" value="團體"> 團體
+        </label><br>
+        <button id="addEntryButton">添加內容</button>
+      </details>
+      <details class="control-section" open id="clearSection">
+        <summary>清空欄位</summary>
+        <button id="clearTableButton">清空整個表格</button>
+      </details>
+      <details class="control-section" open id="clearStudentSection">
+        <summary>清空指定學生</summary>
+        <label>學生姓名: <input type="text" id="removeStudentInput"></label><br>
+        <label>指定时段: 
+          <select id="removeTimeSlotSelect" multiple size="5">
+            <option value="all">全部</option>
+          </select>
+        </label><br>
+        <label>指定星期: 
+          <select id="removeDaySelect" multiple size="5">
+            <option value="all">全部</option>
+          </select>
+        </label><br>
+        <button id="clearStudentButton">清空指定學生</button>
+      </details>
+      <details class="control-section" open id="exportSection">
+        <summary>輸出/載入 設定</summary>
+        <button id="exportHtmlButton">輸出 HTML 文件</button>
+        <button id="loadHtmlButton">載入 HTML 文件</button>
+        <button id="saveSettingsButton">保存設定</button>
+        <button id="loadSettingsButton">載入設定</button>
+        <button id="generateImageButton">生成圖片</button>
+      </details>
+      <details class="control-section" open id="timeslotSection">
+        <summary>時段設定</summary>
+        <label>起始時間 (HH:MM): <input type="text" id="startTimeInput" value="18:30"></label><br>
+        <label>區段選項: <input type="number" id="segmentCountInput" value="5"></label><br>
+        <label>區段時長 (分鐘): <input type="number" id="durationInput" value="60"></label><br>
+        <button id="updateTimeslotButton">更新時段</button>
+      </details>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
