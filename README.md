@@ -1,2 +1,2 @@
 # schedule
-## Student Schedule Arrangement
+## Private Lesson Scheduling Tool
